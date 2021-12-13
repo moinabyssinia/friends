@@ -2,8 +2,19 @@
 
     <div class = "jumbotron">
         <h2> <%= "Welcome Home, Friend"  %> </h2>
-    
     </div>
 
+    <div class = "friend">
+        <% @friend.each do |frd| %>
+            <div class = "">
+                <%= frd.first_name %>  <%= frd.last_name %> 
+            </div>
+
+        <% end %>
+    </div>
+
+    <div>
+        <%= link_to 'Add Friend', new_friend_path %>
+    </div>
 
 </div>

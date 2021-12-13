@@ -1,6 +1,6 @@
 class FriendsController < ApplicationController
     def index
-        
+        @friend = Friend.all
     end
 
     def new
@@ -10,7 +10,23 @@ class FriendsController < ApplicationController
 
     def create
         @friend = Friend.new(post_params)
-        binding.pry
+        @friend.save 
+        redirect_to friends_path
+    end
+
+    def show
+        @friend = Friend.find(params[:id])
+
+    end
+
+    def edit
+        @friend = Friend.find(params[:id])
+    end
+    
+    def update
+        @friend = Friend.find(params[:id])
+        @friend.update(post_params)
+        redirect_to friends_path
     end
 
     private 
